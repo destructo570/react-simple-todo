@@ -11,11 +11,15 @@ import TodoItem from "./TodoItem";
 
 function App() {
   const inputRef = useRef();
-  const [todoList, setTodoList] = useState(getTodoItems());
+  const [todoList, setTodoList] = useState([]);
   const [todoListItems, setTodoListItems] = useState([]);
 
   useEffect(() => {
-    let items = todoList.map((item, index) => (
+    setTodoList(getTodoItems());
+  }, []);
+
+  useEffect(() => {
+    let items = getTodoItems().map((item, index) => (
       <TodoItem
         key={index}
         todo={item}
@@ -24,7 +28,6 @@ function App() {
         className={item.status === "complete" ? "completed-item" : ""}
       />
     ));
-
     setTodoListItems(items);
   }, [todoList]);
 
