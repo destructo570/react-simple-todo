@@ -70,7 +70,7 @@ function App() {
         />
         <button onClick={addTodoHandler}>Add</button>
       </div>
-      {todoList.length > 0 && <ul className="todo-list">{todoListItems}</ul>}
+      {todoList?.length > 0 && <ul className="todo-list">{todoListItems}</ul>}
     </div>
   );
 }
