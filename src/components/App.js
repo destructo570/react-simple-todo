@@ -19,7 +19,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    let items = todoList.map((item, index) => (
+    let items = todoList?.map((item, index) => (
       <TodoItem
         key={index}
         todo={item}
